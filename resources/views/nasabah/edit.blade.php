@@ -20,37 +20,29 @@
  </ul>
  </div>
  @endif
- <form method="post" action="{{ route('mahasiswa.update', $Mahasiswa->Nim) }}" id="myForm">
+ <form method="post" action="{{ route('nasabah.update', $nasabah->no_rekening) }}" id="myForm">
  @csrf
  @method('PUT')
  <div class="form-group">
-    <label for="Nim">Nim</label>
-    <input type="text" name="Nim" class="formcontrol" id="Nim" value="{{ $Mahasiswa->Nim }}" ariadescribedby="Nim" >
+    <label for="no_rekening">No Rekening</label>
+    <input type="text" name="no_rekening" class="formcontrol" id="no_rekening" value="{{ $nasabah->no_rekening }}"  >
     </div>
     <div class="form-group">
-    <label for="Nama">Nama</label>
-    <input type="text" name="Nama" class="formcontrol" id="Nama" value="{{ $Mahasiswa->Nama }}" ariadescribedby="Nama" >
+    <label for="nama">Nama</label>
+    <input type="text" name="nama" class="formcontrol" id="nama" value="{{ $nasabah->nama }}" >
     </div>
     <div class="form-group">
-    <label for="Kelas">Kelas</label>
-    <input type="Kelas" name="Kelas" class="formcontrol" id="Kelas" value="{{ $Mahasiswa->Kelas }}" ariadescribedby="Kelas" >
+    <label for="alamat">alamat</label>
+    <input type="alamat" name="alamat" class="formcontrol" id="alamat" value="{{ $nasabah->alamat}}">
     </div>
     <div class="form-group">
-    <label for="Jurusan">Jurusan</label>
-    <input type="Jurusan" name="Jurusan" class="formcontrol" id="Jurusan" value="{{ $Mahasiswa->Jurusan }}" ariadescribedby="Jurusan" >
+    <label for="jenis_tabungan">Jenis Tabungan</label>
+    <input type="jenis tabungan" name="jenis tabungan" class="formcontrol" id="jenis_tabungan" value= "{{$nasabah->jenis_tabungan}}" >
     </div>
     <div class="form-group">
-    <label for="No_Handphone">No_Handphone</label>
-    <input type="No_Handphone" name="No_Handphone" class="formcontrol" id="No_Handphone" value="{{ $Mahasiswa->No_Handphone }}" ariadescribedby="No_Handphone" >
+    <label for="saldo">Saldo</label>
+    <input type="saldo" name="sadlo" class="formcontrol" id="saldo" value="{{ $nasabah->saldo}}"  >
     </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" name="email" class="formcontrol" id="email" value="{{ $Mahasiswa->email }}" ariadescribedby="email" >
-      </div>
-      <div class="form-group">
-         <label for="tanggal_lahir">Tanggal Lahir</label>
-         <input type="tanggal_lahir" name="tanggal_lahir" class="formcontrol" id="tanggal_lahir" value="{{ $Mahasiswa->tanggal_lahir }}" ariadescribedby="tanggal_lahir" >
-         </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     </div>

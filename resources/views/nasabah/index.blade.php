@@ -56,7 +56,7 @@ onymous"></script>
  <td>{{ $nasabah->saldo }}</td>
 
  <td>
- <form action="{{ route('nasabah.destroy',$nasabah->Nim) }}" method="POST">
+ <form action="{{ route('nasabah.destroy',$nasabah->no_rekening) }}" method="POST">
 
  <a class="btn btninfo" href="{{ route('nasabah.show',$nahasiswa->no_rekening) }}">Show</a>
  <a class="btn btnprimary" href="{{ route('nasabah.edit',$nahasiswa->no_rekening) }}">Edit</a>
