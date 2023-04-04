@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class nasabah extends Model
+{
+    use HasFactory;
+    protected $table="nasabah"; // Eloquent akan membuat model mahasiswa menyimpan record di tabel mahasiswas
+    public $timestamps= false;
+    protected $primaryKey = 'Id';
+
+
+    protected $fillable = [
+        'no_rekening',
+        'nama',
+        'alamat',
+        'jenis_tabungan',
+        'saldo',
+     ];
+}
