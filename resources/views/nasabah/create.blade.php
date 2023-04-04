@@ -37,7 +37,7 @@ nput.<br><br>
  </ul>
  </div>
  @endif
- <form method="post" action="{{ route('dashboard.store') }}" id="myForm">
+ <form method="post" action="{{ route('nasabah.store') }}" id="myForm">
  @csrf
  <div class="form-group">
  <label for="no_rekening">No Rekening :</label>
@@ -52,7 +52,7 @@ nput.<br><br>
  <input type="alamat" name="Kelas" class="formcontrol" id="alamat">
  </div>
  <div class="form-group">
- <label for="jenis_tabungan">Jenis Tabunga</label>
+ <label for="jenis_tabungan">Jenis Tabungan</label>
  <input type="jenis_tabungan" name="jenis_tabungan" class="formcontrol" id="jenis_tabungan">
  </div>
  <div class="form-group">

@@ -15,10 +15,17 @@ class DataController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index()
+    public function index(Request $request)
     {
-        $nasabah = nasabah::orderBy('no_rekening', 'desc')->paginate(5);
-        return view('nasabah.index', compact('nasabah'))->with('i', (request()->input('page', 1) -1) *5);
+        if($request->has('Nama')){
+            $Nama = request('Nama');
+            $nasabah = nasabah::where('Nama', 'LIKE', '%'.$Nama.'%')->paginate(6);
+            return view('nasabah.index', compact('nasabah'));
+        }
+        else {
+            $nasabah = nasabah::orderBy('no_rekening', 'desc')->paginate(5);
+        return view('nasabah.index', compact('nasabah'))->with('i', (request()->input('page', 1) -1) *6);
+        }
     }
 
     /**
@@ -60,9 +67,11 @@ class DataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($no_rekening)
     {
         //
+        $nasabah = nasabah::find($no_rekening);
+        return view('nasabah.detail', compact('nasabah'));
     }
 
     /**
@@ -71,9 +80,11 @@ class DataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($no_rekening)
     {
         //
+        $nasabah = nasabah::find($no_rekening);
+        return view('nasabah.edit', compact('nasabah'));
     }
 
     /**
@@ -83,9 +94,20 @@ class DataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $no_rekening)
     {
         //
+        $request->validate([
+            'jenis_tabungan' => 'required',
+            'nama' => 'required',
+            'alamat' => 'required',
+            'jenis_tabugan' => 'required',
+            'saldo' => 'required',
+        ]);
+
+        nasabah::find($no_rekening)->update($request->all());
+
+        return redirect()->route('nasabah.index')->with('success', ' Berhasil Di Update');
     }
 
     /**
@@ -94,8 +116,10 @@ class DataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($no_rekening)
     {
         //
+        nasabah::find($no_rekening)->delete();
+        return redirect()->route('nasabah.index')->with('success','Nasabah berhasil di hapus');
     }
 }

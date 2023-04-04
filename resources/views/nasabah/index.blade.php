@@ -20,11 +20,14 @@ onymous"></script>
  <div class="row">
  <div class="col-lg-12 margin-tb">
  <div class="pull-left mt-2">
- <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
+ <h2>Nasabah </h2>
  </div>
- <div class="float-right my-2">
- <a class="btn btnsuccess" href="{{ route('nasabah.create') }}"> Input Nasabah</a>
- </div>
+ <div class="float-left my-2">
+    <form action="{{ route('nasabah.index') }}" method="GET" class="d-flex">
+        <input type="text" class="form-control" name="Nama" placeholder="Nama nasabah" value="{{request('nama')}}" required>
+        <button type="submit" class="btn btn-dark">Search</button>
+    </form>
+</div>
  </div>
  </div>
 
