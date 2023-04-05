@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\NasabahController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +21,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('nasabah', 'DataController');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+
+Route::resource('nasabah', NasabahController::class)->middleware('auth');
